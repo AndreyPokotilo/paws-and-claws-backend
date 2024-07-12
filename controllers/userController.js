@@ -85,7 +85,7 @@ class UserController {
     res.cookie("refreshToken", result.refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: 'Lax',
+      sameSite: 'None',
       secure: true,
       // expires: expirationDate,
     });
@@ -101,7 +101,7 @@ class UserController {
     await userServise.verifyEmail(verificationCode);
 
     // res.redirect("https://paws-and-claws-store.github.io/frontend/user");
-    res.redirect("https://andreypokotilo.github.io/paws-and-claws-frontend//user");
+    res.redirect("https://andreypokotilo.github.io/paws-and-claws-frontend/user");
     
   });
 //=================================================================================

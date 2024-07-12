@@ -3,8 +3,7 @@ const { Strategy } = require("passport-google-oauth2");
 const { nanoid } = require("nanoid");
 const passport = require("passport");
 
-const { GOOGLE_CLIENT_SECRET, GOOGLE_CLIENT_ID, BASE_URL } = process.env;
-console.log(" GOOGLE_CLIENT_ID:",  GOOGLE_CLIENT_ID)
+const { GOOGLE_CLIENT_SECRET, GOOGLE_CLIENT_ID, BASE_URL } = process?.env;
 
 const { User } = require("../models/user");
 
@@ -14,6 +13,7 @@ const googleParams = {
   callbackURL: `${BASE_URL}/api/auth/google/callback`,
   passReqToCallback: true,
 };
+console.log("googleParams:", googleParams)
 
 const googleCallback = async (req, accessToken, refreshToken, profile, done) => {
   try {

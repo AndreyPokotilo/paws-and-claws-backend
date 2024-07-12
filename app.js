@@ -15,12 +15,10 @@ const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
 app.use(logger(formatsLogger));
 app.use(cors({
-  // origin: process.env.CLIENT_URL,
+  origin: process.env.CLIENT_URL,
   // origin: 'https://andreypokotilo.github.io/paws-and-claws-frontend',
-  origin:'http://localhost:3000',
+  // origin:'http://localhost:3000',
   credentials: true,
-  // methods: 'GET, POST, PUT, DELETE',
-  // allowedHeaders: 'Content-Type, Authorization'
 }));
 app.use(cookieParser());
 app.use(express.json());
