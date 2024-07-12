@@ -35,7 +35,8 @@ class UserController {
       // expires: expirationDate,
     });
 
-    res.redirect(`http://localhost:3000/frontend/user?token=${accessToken}`);
+    res.redirect(`http://localhost:3000/paws-and-claws-frontend/user?token=${accessToken}`);
+    // res.redirect(`https://andreypokotilo.github.io/paws-and-claws-frontend/user?token=${accessToken}`);
   }
 
   });
@@ -99,7 +100,9 @@ class UserController {
 
     await userServise.verifyEmail(verificationCode);
 
-    res.redirect("https://paws-and-claws-store.github.io/frontend/user");
+    // res.redirect("https://paws-and-claws-store.github.io/frontend/user");
+    res.redirect("https://andreypokotilo.github.io/paws-and-claws-frontend//user");
+    
   });
 //=================================================================================
 
