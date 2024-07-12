@@ -1,9 +1,10 @@
-const { Strategy } = require("passport-google-oauth2");
 const bcrypt = require("bcrypt");
+const { Strategy } = require("passport-google-oauth2");
 const { nanoid } = require("nanoid");
 const passport = require("passport");
 
 const { GOOGLE_CLIENT_SECRET, GOOGLE_CLIENT_ID, BASE_URL } = process.env;
+console.log(" GOOGLE_CLIENT_ID:",  GOOGLE_CLIENT_ID)
 
 const { User } = require("../models/user");
 
