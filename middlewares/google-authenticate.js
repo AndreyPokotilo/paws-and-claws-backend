@@ -13,7 +13,6 @@ const googleParams = {
   callbackURL: `${BASE_URL}/api/auth/google/callback`,
   passReqToCallback: true,
 };
-console.log("googleParams:", googleParams)
 
 const googleCallback = async (req, accessToken, refreshToken, profile, done) => {
   try {
