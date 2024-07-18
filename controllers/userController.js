@@ -7,8 +7,6 @@ class UserController {
 
     const result = await userServise.register(name, email, password);
 
-    console.log("result", result);
-
     res.status(201).json({
       code: 201,
       data: {
