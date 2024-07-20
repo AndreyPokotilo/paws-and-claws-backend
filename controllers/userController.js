@@ -28,7 +28,7 @@ class UserController {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
-      sameSite: 'Lax',
+      sameSite: "None",
       secure: true,
       // expires: expirationDate,
     });

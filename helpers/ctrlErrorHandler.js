@@ -3,6 +3,7 @@ const ctrlErrorHandler = (ctrl) => {
     try {
       await ctrl(req, res, next);
     } catch (err) {
+      console.log("ctrlErrorHandler:", err)
       next(err);
     }
   };

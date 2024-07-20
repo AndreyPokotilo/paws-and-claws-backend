@@ -16,8 +16,6 @@ const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 app.use(logger(formatsLogger));
 app.use(cors({
   origin: process.env.CLIENT_URL,
-  // origin: 'https://andreypokotilo.github.io/paws-and-claws-frontend',
-  // origin:'http://localhost:3000',
   credentials: true,
 }));
 app.use(cookieParser());
