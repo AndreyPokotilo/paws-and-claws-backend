@@ -3,7 +3,7 @@ const { ACCESS_SECRET_KEY, REFRESH_SECRET_KEY, RESET_PASSWORD_KEY } = process.en
 
 class TokenServise {
   async generateTokens(payload) {
-    const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, { expiresIn: "20s" });
+    const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, { expiresIn: "300s" });
     const refreshToken = jwt.sign(payload, REFRESH_SECRET_KEY, { expiresIn: "7d" });
 
     return {
