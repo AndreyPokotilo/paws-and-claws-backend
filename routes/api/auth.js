@@ -26,7 +26,7 @@ router.post("/login", validateBody(loginSchema), userController.login);
 
 router.get("/current", authenticate, userController.current);
 
-router.get("/refresh", userController.refresh);
+router.post("/refresh", userController.refresh);
 
 router.get("/logout", authenticate, userController.logout);
 
