@@ -75,21 +75,20 @@ class UserController {
 
   refresh = ctrlErrorHandler(async (req, res) => {
     // console.log("req:", req)
-    const { refreshToken } = req.cookies;
+    const { refreshToken } = req?.cookies;
 
     const result = await userServise.refresh(refreshToken);
 
-    if(result?.accessToken && result?.refreshToken){
-    res.cookie("refreshToken", result.refreshToken, {
+    // if(result?.refreshToken){
+    res.cookie("refreshToken", result?.refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: 'None',
-      secure: true,
-      // expires: expirationDate,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
     });
   
-    res.json({accessToken: result.accessToken});
-  }
+    res.json({accessToken: result?.accessToken});
+  // }
   });
 //=================================================================================
 
