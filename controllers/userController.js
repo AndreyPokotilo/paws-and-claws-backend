@@ -1,5 +1,6 @@
 const userServise = require("../servise/userServise");
 const { ctrlErrorHandler } = require("../helpers");
+require("dotenv").config();
 
 class UserController {
   register = ctrlErrorHandler(async (req, res) => {
@@ -28,9 +29,8 @@ class UserController {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
-      sameSite: 'Lax',
-      secure: true,
-      // expires: expirationDate,
+      secure: process.env.NODE_ENV === 'production',
+      // sameSite: 'Lax',
     });
 
     // res.redirect(`http://localhost:3000/paws-and-claws-frontend/user?token=${accessToken}`);
