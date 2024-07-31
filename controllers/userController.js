@@ -30,7 +30,7 @@ class UserController {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
       secure: process.env.NODE_ENV === 'production',
-      // sameSite: 'Lax',
+      sameSite: 'strict',
     });
 
     // res.redirect(`http://localhost:3000/paws-and-claws-frontend/user?token=${accessToken}`);
