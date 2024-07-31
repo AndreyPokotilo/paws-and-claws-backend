@@ -76,10 +76,14 @@ class UserController {
   refresh = ctrlErrorHandler(async (req, res) => {
     // console.log("req:", req)
     const { refreshToken } = req?.cookies;
+    if(!refreshToken){
+      res.status(401).json({error: "Refresh token not found"});
+      return
+    }
 
     const result = await userServise.refresh(refreshToken);
 
-    // if(result?.refreshToken){
+    if(result?.refreshToken){
     res.cookie("refreshToken", result?.refreshToken, {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
@@ -88,7 +92,7 @@ class UserController {
     });
   
     res.json({accessToken: result?.accessToken});
-  // }
+  }
   });
 //=================================================================================
 
