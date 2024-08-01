@@ -13,7 +13,7 @@ class TokenServise {
   }
 
   async saveToken(user, tokens) {
-    console.log(tokens);
+    console.log("saveToken",tokens);
     if (user || tokens) {
       const { accessToken, refreshToken } = tokens;
 
@@ -25,6 +25,7 @@ class TokenServise {
   }
 
   async verifyRefreshToken(token) {
+    console.log("verifyRefreshToken",token);
     try {
       const { id } = jwt.verify(token, REFRESH_SECRET_KEY);
 
