@@ -74,7 +74,7 @@ class UserController {
 //=================================================================================
 
   refresh = ctrlErrorHandler(async (req, res) => {
-    console.log("reqCookies:", req)
+    console.log("reqCookies:", req.cookies)
     const { refreshToken } = req?.cookies;
     if(!refreshToken){
       res.status(401).json({error: "Refresh token not found"});
