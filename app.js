@@ -12,12 +12,12 @@ const authRouter = require("./routes/api/auth");
 const app = express();
 
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
-
-app.use(logger(formatsLogger));
 app.use(cors({
   origin: process.env.CLIENT_URL,
   credentials: true,
 }));
+app.use(logger(formatsLogger));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
