@@ -75,7 +75,7 @@ class UserController {
 //=================================================================================
 
   refresh = ctrlErrorHandler(async (req, res) => {
-    const { refreshToken } = req?.cookies;
+    const { refreshToken } = req.cookies;
     // console.log("reqCookies:", res)
     const result = await userServise.refresh(refreshToken);
 

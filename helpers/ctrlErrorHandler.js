@@ -1,8 +1,5 @@
 const ctrlErrorHandler = (ctrl) => {
-  console.log("ctrl:", ctrl)
   const func = async (req, res, next) => {
-    console.log("res:", res)
-    console.log("req:", req)
     try {
       await ctrl(req, res, next);
     } catch (err) {
@@ -10,6 +7,7 @@ const ctrlErrorHandler = (ctrl) => {
       next(err);
     }
   };
+  console.log("func:", func)
 
   return func;
 };
