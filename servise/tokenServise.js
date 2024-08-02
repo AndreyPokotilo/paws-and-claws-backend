@@ -1,10 +1,15 @@
 const jwt = require("jsonwebtoken");
-const { ACCESS_SECRET_KEY, REFRESH_SECRET_KEY, RESET_PASSWORD_KEY } = process.env;
+const { ACCESS_SECRET_KEY, REFRESH_SECRET_KEY, RESET_PASSWORD_KEY } =
+  process.env;
 
 class TokenServise {
   async generateTokens(payload) {
-    const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, { expiresIn: "20s" });
-    const refreshToken = jwt.sign(payload, REFRESH_SECRET_KEY, { expiresIn: "7d" });
+    const accessToken = jwt.sign(payload, ACCESS_SECRET_KEY, {
+      expiresIn: "20s",
+    });
+    const refreshToken = jwt.sign(payload, REFRESH_SECRET_KEY, {
+      expiresIn: "7d",
+    });
 
     return {
       accessToken,
@@ -13,7 +18,6 @@ class TokenServise {
   }
 
   async saveToken(user, tokens) {
-    console.log("saveToken",tokens);
     if (user || tokens) {
       const { accessToken, refreshToken } = tokens;
 
@@ -25,7 +29,6 @@ class TokenServise {
   }
 
   async verifyRefreshToken(token) {
-    console.log("verifyRefreshToken",token);
     try {
       const { id } = jwt.verify(token, REFRESH_SECRET_KEY);
 

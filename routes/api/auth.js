@@ -2,10 +2,10 @@ const { Router } = require("express");
 const router = Router();
 
 const { validateBody, authenticate, passport } = require("../../middlewares");
+
 const {
   registerSchema,
   loginSchema,
-
   emailSchema,
   resetPasswordSchema,
 } = require("../../models/user");
@@ -26,7 +26,7 @@ router.post("/login", validateBody(loginSchema), userController.login);
 
 router.get("/current", authenticate, userController.current);
 
-router.get("/refresh", userController.refresh);
+router.post("/refresh", userController.refresh);
 
 router.get("/logout", authenticate, userController.logout);
 
