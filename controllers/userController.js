@@ -29,7 +29,6 @@ class UserController {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       maxAge: 30 * 24 * 60 * 60 * 1000,
-      // secure: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'None',
     });
@@ -75,7 +74,7 @@ class UserController {
 //=================================================================================
 
   refresh = ctrlErrorHandler(async (req, res) => {
-    console.log("reqCookies:", req);
+    
     const { refreshToken } = req.cookies;
     
     const result = await userServise.refresh(refreshToken);
@@ -84,7 +83,6 @@ class UserController {
     res.cookie("refreshToken", result.refreshToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      // secure: true,
       sameSite: 'None',
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
