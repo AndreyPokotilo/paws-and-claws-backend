@@ -31,7 +31,7 @@ class UserController {
       maxAge: 30 * 24 * 60 * 60 * 1000,
       secure: true,
       // secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      sameSite: 'None',
     });
 
     // res.redirect(`http://localhost:3000/paws-and-claws-frontend/user?token=${accessToken}`);
@@ -75,17 +75,18 @@ class UserController {
 //=================================================================================
 
   refresh = ctrlErrorHandler(async (req, res) => {
+    console.log("reqCookies:", req);
     const { refreshToken } = req.cookies;
-    // console.log("reqCookies:", res)
+    
     const result = await userServise.refresh(refreshToken);
 
     if(result.accessToken && result.refreshToken){
     res.cookie("refreshToken", result.refreshToken, {
-      maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       // secure: process.env.NODE_ENV === 'production',
       secure: true,
-      sameSite: 'strict',
+      sameSite: 'None',
+      maxAge: 30 * 24 * 60 * 60 * 1000,
     });
   
     res.json({accessToken: result.accessToken});

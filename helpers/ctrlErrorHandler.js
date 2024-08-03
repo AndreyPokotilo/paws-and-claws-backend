@@ -7,7 +7,6 @@ const ctrlErrorHandler = (ctrl) => {
       next(err);
     }
   };
-  console.log("func:", func)
 
   return func;
 };
