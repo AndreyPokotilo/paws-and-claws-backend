@@ -12,6 +12,7 @@ const categories = (data, currentData) => {
         _categories: {},
         _id: item._pet._id,
       };
+      return resultObject[item._pet._id]
     }
 
     if (!resultObject[item._pet._id]._categories[item._category._id]) {
@@ -24,6 +25,7 @@ const categories = (data, currentData) => {
         _id: item._category._id,
         _pet: item._category._pet,
       };
+
     }
 
     if (!resultObject[item._pet._id]._categories[item._category._id]._variants[item._variant._id]) {
@@ -36,6 +38,7 @@ const categories = (data, currentData) => {
         _id: item._variant._id,
         _pet: item._variant._pet,
       };
+
     }
     // Збільшуємо лічильники
     resultObject[item._pet._id].count += 1;
@@ -60,6 +63,7 @@ const categories = (data, currentData) => {
           _categories: {},
           _id: itemData._pet._id,
         };
+
       }
 
       if (!resultObject[petId]._categories[categoryId]) {
@@ -72,6 +76,7 @@ const categories = (data, currentData) => {
           _id: categoryId,
           _pet: itemData._category._pet,
         };
+
       }
 
       if (!resultObject[petId]._categories[categoryId]._variants[variantId]) {
@@ -84,6 +89,7 @@ const categories = (data, currentData) => {
           _id: variantId,
           _pet: itemData._variant._pet,
         };
+
       }
     }
   }
