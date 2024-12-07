@@ -25,6 +25,7 @@ const categories = (data, currentData) => {
         _id: item._category._id,
         _pet: item._category._pet,
       };
+      return resultObject[item._pet._id]
 
     }
 
@@ -38,6 +39,7 @@ const categories = (data, currentData) => {
         _id: item._variant._id,
         _pet: item._variant._pet,
       };
+      return resultObject[item._pet._id]
 
     }
     // Збільшуємо лічильники
@@ -63,7 +65,7 @@ const categories = (data, currentData) => {
           _categories: {},
           _id: itemData._pet._id,
         };
-
+        return resultObject[petId]
       }
 
       if (!resultObject[petId]._categories[categoryId]) {
@@ -76,6 +78,7 @@ const categories = (data, currentData) => {
           _id: categoryId,
           _pet: itemData._category._pet,
         };
+        return resultObject[petId]._categories[categoryId]
 
       }
 
@@ -89,7 +92,7 @@ const categories = (data, currentData) => {
           _id: variantId,
           _pet: itemData._variant._pet,
         };
-
+        return resultObject[petId]._categories[categoryId]._variants[variantId]
       }
     }
   }
