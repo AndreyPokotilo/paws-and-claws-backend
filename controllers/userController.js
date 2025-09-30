@@ -36,7 +36,6 @@ class UserController {
     // res.redirect(`http://localhost:3000/paws-and-claws-frontend/user?token=${accessToken}`);
     res.redirect(`https://andreypokotilo.github.io/paws-and-claws-frontend/?token=${accessToken}`);
   }
-
   });
 //=================================================================================
 
